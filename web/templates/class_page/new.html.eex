@@ -1,0 +1,6 @@
+<h2>New class page</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: class_page_path(@conn, :create) %>
+
+<%= link "Back", to: class_page_path(@conn, :index) %>

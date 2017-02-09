@@ -1,0 +1,26 @@
+<h2>Listing instructor page</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for instructor_page <- @instructor_page do %>
+    <tr>
+      <td><%= instructor_page.title %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: instructor_page_path(@conn, :show, instructor_page), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: instructor_page_path(@conn, :edit, instructor_page), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: instructor_page_path(@conn, :delete, instructor_page), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New instructor page", to: instructor_page_path(@conn, :new) %>

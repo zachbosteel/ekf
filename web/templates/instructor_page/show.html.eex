@@ -1,0 +1,13 @@
+<h2>Show instructor page</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @instructor_page.title %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: instructor_page_path(@conn, :edit, @instructor_page) %>
+<%= link "Back", to: instructor_page_path(@conn, :index) %>

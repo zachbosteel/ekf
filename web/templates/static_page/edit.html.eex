@@ -1,0 +1,6 @@
+<h2>Edit static page</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: static_page_path(@conn, :update, @static_page) %>
+
+<%= link "Back", to: static_page_path(@conn, :index) %>

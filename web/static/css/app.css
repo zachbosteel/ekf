@@ -1,0 +1,59 @@
+/* This file is for your main application css. */
+
+/* FIX ME: implement breakpoint at 760 px */
+body {
+    margin: 0px;
+}
+
+.header {
+    height: 80px;
+    width: 100%;
+    background-color: #000000;
+    text-align: center;
+    color: white;
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #2664D6;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.headerButton {
+    background-color: #000;
+    display: inline-block;
+    position: relative;
+    color: white;
+    top: 5%;
+    height: 95%;
+    width: 16%;
+    line-height: 77px;
+    vertical-align: middle;
+}
+
+.headerButton:hover {
+    background-color: #2664D6;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.headerLogo {
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    z-index: 1001;
+    background-color: #000;
+    display: inline-block;
+    float: left;
+    border-radius: 50%;
+}
+
+.headerLogoImage {
+    max-height: 60%;
+    position: relative;
+    left: 20%;
+    top: 10%;
+}

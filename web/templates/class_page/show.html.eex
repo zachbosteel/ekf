@@ -1,0 +1,13 @@
+<h2>Show class page</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @class_page.title %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: class_page_path(@conn, :edit, @class_page) %>
+<%= link "Back", to: class_page_path(@conn, :index) %>

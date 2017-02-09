@@ -1,0 +1,26 @@
+<h2>Listing class page</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for class_page <- @class_page do %>
+    <tr>
+      <td><%= class_page.title %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: class_page_path(@conn, :show, class_page), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: class_page_path(@conn, :edit, class_page), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: class_page_path(@conn, :delete, class_page), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New class page", to: class_page_path(@conn, :new) %>

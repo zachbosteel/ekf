@@ -1,0 +1,26 @@
+<h2>Listing static pages</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for static_page <- @static_pages do %>
+    <tr>
+      <td><%= static_page.title %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: static_page_path(@conn, :show, static_page), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: static_page_path(@conn, :edit, static_page), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: static_page_path(@conn, :delete, static_page), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New static page", to: static_page_path(@conn, :new) %>

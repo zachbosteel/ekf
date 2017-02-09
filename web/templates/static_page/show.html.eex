@@ -1,0 +1,13 @@
+<h2>Show static page</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @static_page.title %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: static_page_path(@conn, :edit, @static_page) %>
+<%= link "Back", to: static_page_path(@conn, :index) %>

@@ -1,0 +1,23 @@
+<h2>Show image</h2>
+
+<ul>
+
+  <li>
+    <strong>Path:</strong>
+    <%= @image.path %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @image.title %>
+  </li>
+
+  <li>
+    <strong>Alt:</strong>
+    <%= @image.alt %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: image_path(@conn, :edit, @image) %>
+<%= link "Back", to: image_path(@conn, :index) %>
