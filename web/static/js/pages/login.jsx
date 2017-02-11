@@ -1,15 +1,30 @@
-import React from "react";
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../../actions/session';
+import LoginForm from '../../components/LoginForm';
+import Navbar from '../../components/Navbar';
 
-class Login extends React.Component {
-  render(){
+type Props = {
+  login: () => void,
+}
+
+class Login extends Component {
+  static contextTypes = {
+    router: PropTypes.object,
+  }
+
+  props: Props
+
+  handleLogin = data => this.props.login(data, this.context.router);
+
+  render() {
     return (
-      <div className="login-form">
-        Username: <input type="text" />
-        Password: <input type="text" />
-        <button type="submit">Login</button>
+      <div style={{ flex: '1' }}>
+        <Navbar />
+        <LoginForm onSubmit={this.handleLogin} />
       </div>
-    )
+    );
   }
 }
 
-export default Login
+export default connect(null, { login })(Login);
