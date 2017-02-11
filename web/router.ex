@@ -22,6 +22,7 @@ defmodule Ekf.Router do
   scope "/api", Ekf do
     pipe_through :api
 
+    resources "/users", UserController, except: [:new, :edit]
     resources "/images", ImageController
     resources "/texts", TextController
     resources "/static_page", StaticPageController
