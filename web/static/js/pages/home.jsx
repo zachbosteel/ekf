@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-import Header from "../header/header"
 import CleanCarousel from "../carousel/carousel"
 
 class Home extends React.Component {
@@ -35,7 +34,6 @@ class Home extends React.Component {
   render() {
     return(
       <div>
-        <Header />
         <CleanCarousel />
         <div className="home-text-1">
           <h1 className="home-header">{this.state.texts['home-header-1']}</h1>

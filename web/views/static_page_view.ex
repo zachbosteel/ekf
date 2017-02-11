@@ -18,6 +18,7 @@ defmodule Ekf.StaticPageView do
 
   def static_page_json(static_page) do
     %{
+      id: static_page.id,
       title: static_page.title,
       texts: Enum.map(static_page.texts, &Ekf.TextView.text_json/1),
       images: Enum.map(static_page.images, &Ekf.ImageView.image_json/1)

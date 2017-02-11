@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+Ekf.Repo.delete_all Ekf.User
+
+Ekf.User.changeset(%Ekf.User{}, %{name: "Test User", email: "testuser@example.com", password: "secret", password_confirmation: "secret"})
+|> Ekf.Repo.insert!

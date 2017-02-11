@@ -23,7 +23,6 @@ class Contact extends React.Component {
   render() {
     return(
       <div>
-        <Header />
         <h1>{this.state.properties.title}</h1>
       </div>
     )

@@ -8,10 +8,10 @@ defmodule Ekf.ClassPageController do
     render(conn, "index.json", class_pages: class_pages)
   end
 
-  # def new(conn, _params) do
-  #   changeset = ClassPage.changeset(%ClassPage{})
-  #   render(conn, "new.html", changeset: changeset)
-  # end
+  def new(conn, _params) do
+    changeset = ClassPage.changeset(%ClassPage{})
+    render(conn, "new.html", changeset: changeset)
+  end
 
   # def create(conn, %{"class_page" => class_page_params}) do
   #   changeset = ClassPage.changeset(%ClassPage{}, class_page_params)

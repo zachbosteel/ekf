@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-import Header from "../header/header"
-
 class Classes extends React.Component {
   constructor(props) {
     super(props)
@@ -22,7 +20,6 @@ class Classes extends React.Component {
   render() {
     return(
       <div>
-        <Header />
         <h1>{this.state.properties.title}</h1>
       </div>
     )

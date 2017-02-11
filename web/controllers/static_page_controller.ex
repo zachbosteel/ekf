@@ -27,7 +27,7 @@ defmodule Ekf.StaticPageController do
   # end
 
   def show(conn, %{"id" => id}) do
-    static_page = Repo.get!(StaticPage, id) |> Repo.preload(:texts) |> Repo.preload (:images)
+    static_page = Repo.get!(StaticPage, id) |> Repo.preload(:texts) |> Repo.preload(:images)
     IO.puts("****************")
     IO.inspect(static_page)
     render(conn, "show.json", static_page: static_page)
