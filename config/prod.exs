@@ -13,11 +13,18 @@ use Mix.Config
 # which you typically run after static files are built.
 config :ekf, Ekf.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  url: [host: "extremekungfu.com", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
+  url: [host: "extremekungfu.com", port: 443],
+  https: [port: 443,
+          keyfile: System.get_env("EKF_SSL_KEY_PATH"),
+          certfile: System.get_env("EKF_SSL_CERT_PATH")]
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+config :guardian, Guardian,
+  secret_key: System.get_env("GUARDIAN_SECRET_KEY")
 
 # ## SSL Support
 #
