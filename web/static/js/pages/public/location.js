@@ -1,9 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import Header from "../header/header"
-
-class Instructors extends React.Component {
+class Location extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -12,13 +10,12 @@ class Instructors extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4000/api/static_page/4`)
+    axios.get(`http://localhost:4000/api/static_page/5`)
       .then(res => {
         const properties = res.data.static_page;
         this.setState({ properties });
       });
   }
-
   render() {
     return(
       <div>
@@ -28,4 +25,4 @@ class Instructors extends React.Component {
   } 
 }
 
-export default Instructors;
+export default Location;

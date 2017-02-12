@@ -1,10 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import Header from "../header/header"
-
-class Contact extends React.Component {
-  
+class Schedule extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,7 +10,7 @@ class Contact extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4000/api/static_page/3`)
+    axios.get(`http://localhost:4000/api/static_page/6`)
       .then(res => {
         const properties = res.data.static_page;
         this.setState({ properties });
@@ -29,4 +26,4 @@ class Contact extends React.Component {
   } 
 }
 
-export default Contact;
+export default Schedule;
