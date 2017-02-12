@@ -15,12 +15,6 @@ defmodule Ekf.Router do
     plug Guardian.Plug.LoadResource
   end
 
-  scope "/", Ekf do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-  end
-
   scope "/api", Ekf do
     pipe_through :api
 
@@ -34,5 +28,12 @@ defmodule Ekf.Router do
     resources "/static_page", StaticPageController
     resources "/class_page", ClassPageController
     resources "/instructor_page", InstructorPageController
+  end
+
+  scope "/", Ekf do
+    pipe_through :browser # Use the default browser stack
+
+    get "/", PageController, :index
+    get"/*path", PageController, :index
   end
 end

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import CleanCarousel from "../carousel/carousel"
+import CleanCarousel from "../../carousel/carousel"
 
 class Home extends React.Component {
   constructor(props) {
