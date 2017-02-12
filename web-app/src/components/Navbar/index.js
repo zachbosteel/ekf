@@ -1,0 +1,28 @@
+// react imports
+import React from 'react';
+
+// header style imports
+import HeaderButton from './header_button';
+import HeaderLogo from './header_logo';
+
+
+class Navbar extends React.Component {
+  render() {
+    return (
+      <div>
+        <div className="header">
+          <HeaderLogo linkTo="/" />
+          <HeaderButton buttonName="Classes" linkTo="/classes" />
+          <HeaderButton buttonName="Instructors" linkTo="/instructors" />
+          <HeaderButton buttonName="Schedule" linkTo="/schedule" />
+          <HeaderButton buttonName="Location" linkTo="/location" />
+          <HeaderButton buttonName="Contact Us" linkTo="/contact" />
+        </div>
+
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+export default Navbar;

@@ -10,6 +10,8 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Match exactly pattern="/" component={Home} />
+          <Match pattern="/login" component={Login} />
+          <Match pattern="/signup" component={Signup} />
           <Miss component={NotFound} />
         </div>
       </BrowserRouter>
