@@ -1,0 +1,24 @@
+.public-nav-dropdown {
+    color: lightgrey;
+    background-color:rgba(0, 0, 0, 0.75);
+    text-align: left;
+    width: 25vw;
+    line-height: 45px;
+    opacity
+}
+
+.public-nav-dropdown ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.public-nav-dropdown li {
+    padding-left: 10%;
+    border-radius: 6px;
+    color: lightgrey;
+}
+
+.public-nav-dropdown li:hover {
+    background-color:rgba(0, 0, 0, 0.25);
+    color: white;
+}

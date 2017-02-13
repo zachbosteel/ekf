@@ -1,1 +1,70 @@
+.header-button-dropdown-wrapper {
+    display: inline-block;
+    position: relative;    
+    height: 95%;
+    width: 16%;
+    top: 2px;
+    line-height: 77px;
+    vertical-align: middle;
+}
 
+.header-dropdown-container {
+    z-index: 1000000000000;
+    position: relative;
+    display: inline-block;
+    bottom: 12px;
+}
+
+.header {
+    height: 80px;
+    width: 100%;
+    background-color: #000000;
+    text-align: center;
+    color: white;
+    z-index: 3;
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #2664D6;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.headerButton {
+    width: 100%;
+    display: inline-block;
+    color: white;
+    line-height: 77px;
+    vertical-align: middle;
+    background-size: 100% 200%;
+    background-image: linear-gradient(to top, #2664D6 50%, #000 50%);
+    transition: background-position .5s;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.headerButton:hover {
+    background-position: 0 100%;
+}
+
+
+.headerLogo {
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    z-index: 10001;
+    background-color: #000;
+    display: inline-block;
+    float: left;
+    border-radius: 50%;
+}
+
+.headerLogoImage {
+    z-index: 10001;
+    max-height: 60%;
+    position: relative;
+    left: 20%;
+    top: 10%;
+}

@@ -1,0 +1,32 @@
+.login-field {
+    display: block;
+    float: left;
+    margin: 5px;
+}
+
+.login-field input {
+    margin-left: 4px;
+}
+
+.login-button {
+    display: block;
+    position: relative;
+    float: right;
+}
+
+.login-form {
+    height: 100px;
+    border-width: 50px 3px 3px 3px;
+    border-style: solid;
+    border-color: black;
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+}
+
+.login-div {
+    margin-top: 20%;
+    display: block;
+    text-align: center;
+    width: 100%;
+}

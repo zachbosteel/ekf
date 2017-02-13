@@ -6,7 +6,7 @@ defmodule Ekf.ClassPageView do
 
   def render("index.json", %{class_pages: class_pages}) do
     %{
-      class_pages: Enum.map(class_pages, &class_page_json/1)
+      class_pages: Enum.map(class_pages, &class_page_index_json/1)
     }
   end
 
@@ -16,9 +16,21 @@ defmodule Ekf.ClassPageView do
     }
   end
 
+  def class_page_index_json(class_page) do
+    %{
+      id: class_page.id,
+      title: class_page.title,
+      slug: class_page.slug,
+      type: "classes",
+    }
+  end
+
   def class_page_json(class_page) do
     %{
+      id: class_page.id,
       title: class_page.title,
+      slug: class_page.slug,
+      type: "classes",
       texts: Enum.map(class_page.texts, &Ekf.TextView.text_json/1),
       images: Enum.map(class_page.images, &Ekf.ImageView.image_json/1)
     }

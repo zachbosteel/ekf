@@ -7,7 +7,13 @@ const Carousel = require('react-responsive-carousel').Carousel;
 class CleanCarousel extends React.Component {
     render() {
         return (
-            <Carousel showThumbs={false} showArrows={false} showStatus={false}>
+            <Carousel showThumbs={false} 
+                      infiniteLoop={true}
+                      showArrows={false} 
+                      showStatus={false}
+                      autoPlay={true}
+                      interval={5000}
+                      className='my-carousel'>
                 <div>
                     <img src="images/1.jpg" />
                     <p className="legend">Sanshou</p>

@@ -5,6 +5,7 @@ defmodule Ekf.ClassPage do
     has_many :texts, Ekf.Text
     has_many :images, Ekf.Image
     field :title, :string
+    field :slug, :string
 
     timestamps()
   end
@@ -14,7 +15,7 @@ defmodule Ekf.ClassPage do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title])
-    |> validate_required([:title])
+    |> cast(params, [:title, :slug])
+    |> validate_required([:title, :slug])
   end
 end

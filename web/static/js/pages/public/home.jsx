@@ -39,7 +39,8 @@ class Home extends React.Component {
           <h1 className="home-header">{this.state.texts['home-header-1']}</h1>
           <p className="home-paragraph">{this.state.texts['home-paragraph-1']}</p>
         </div>
-        <img src="images/1.jpg" className="home-background-break-image" />
+        <div className="parallax"> 
+        </div>
         <div className="home-text-2">
           <h1 className="home-header">{this.state.texts['home-header-2']}</h1>
           <p className="home-paragraph">{this.state.texts['home-paragraph-2']}</p>

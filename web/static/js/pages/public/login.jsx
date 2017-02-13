@@ -38,17 +38,18 @@ class Login extends React.Component {
 
   render() {
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Email:
+      <div className="login-div">
+        <img src="images/logo.png"></img>
+        <form onSubmit={this.handleSubmit} className="login-form">
+          <label className="login-field">Email:
             <input type="text"
                    onChange={this.handleEmailChange} />
           </label>
-          <label>Password:
+          <label className="login-field">Password:
             <input type="password"
                    onChange={this.handlePasswordChange} />
            </label>
-          <button type="submit" value="Submit">Login</button>
+          <button className="login-button" type="submit" value="Submit">Login</button>
         </form>
         <p className="errors">{this.props.errors}</p>
       </div>
