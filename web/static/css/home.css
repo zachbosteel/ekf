@@ -17,3 +17,26 @@ img.home-background-break-image {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+.home-text-1 {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.home-text-2 {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+
+.home-header {
+    display: block;
+    text-align: center;
+}
+
+.home-paragraph {
+    display: block;
+    margin-left: 18%;
+    margin-right: 18%;   
+}
