@@ -10,7 +10,7 @@ class Location extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4000/api/static_page/5`)
+    axios.get(`/api/static_page/5`)
       .then(res => {
         const properties = res.data.static_page;
         this.setState({ properties });

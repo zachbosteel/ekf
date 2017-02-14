@@ -23,7 +23,7 @@ class SessionManager extends React.Component {
   }
 
   logIn(data) {
-    axios.post(`http://localhost:4000/api/sessions`, data)
+    axios.post(`/api/sessions`, data)
     .then(res => {
       store.dispatch(this.logInSuccess({
         user: Object.assign({}, res.data.data, res.data.meta)
@@ -38,7 +38,7 @@ class SessionManager extends React.Component {
 
 
   logOut(data) {
-    axios.delete(`http://localhost:4000/api/sessions`, data)
+    axios.delete(`/api/sessions`, data)
     .then(res => {
       store.dispatch(this.logOutAction())
       browserHistory.push('/admin/login')

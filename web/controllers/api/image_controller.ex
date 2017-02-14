@@ -18,9 +18,8 @@ defmodule Ekf.ImageController do
 
     case Repo.insert(changeset) do
       {:ok, _image} ->
-        conn
-        |> put_flash(:info, "Image created successfully.")
-        |> redirect(to: image_path(conn, :index))
+        Repo.update(Image.path_changeset(_image, %{path: Ekf.ImageUploader.url({_image.image, _image})}))
+        render(conn, "create.json", %{})
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

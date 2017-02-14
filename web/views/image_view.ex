@@ -13,6 +13,10 @@ defmodule Ekf.ImageView do
     }
   end
 
+  def render("create.json", %{}) do
+    %{status: "ok"}
+  end
+
   def image_json(image) do
     cond do
       is_nil(image) -> nil

@@ -6,7 +6,7 @@ class HeaderLogo extends React.Component {
     return (
       <div className="headerLogo">
         <Link to={this.props.linkTo}>
-          <img src="images/logo.png" className="headerLogoImage"></img>
+          <img src="/images/logo.png" className="headerLogoImage"></img>
         </Link>
       </div>
     )

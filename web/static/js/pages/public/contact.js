@@ -11,7 +11,7 @@ class Contact extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4000/api/static_page/3`)
+    axios.get(`/api/static_page/3`)
       .then(res => {
         const properties = res.data.static_page;
         this.setState({ properties });

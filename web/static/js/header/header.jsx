@@ -20,12 +20,12 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4000/api/class_page`)
+    axios.get(`/api/class_page`)
       .then(res => {
         const classes = res.data.class_pages;
         this.setState({classes: classes});
       });
-    axios.get(`http://localhost:4000/api/instructor_page`)
+    axios.get(`/api/instructor_page`)
       .then(res => {
         const instructors = res.data.instructor_pages;
         this.setState({instructors: instructors});

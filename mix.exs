@@ -19,7 +19,7 @@ defmodule Ekf.Mixfile do
   def application do
     [mod: {Ekf, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ex_machina, :comeonin]]
+                    :phoenix_ecto, :postgrex, :ex_machina, :comeonin, :arc_ecto]]
   end
 
   # Specifies which paths to compile per environment.
@@ -41,6 +41,8 @@ defmodule Ekf.Mixfile do
      {:ex_machina, "~> 1.0"},
      {:comeonin, "~> 2.5"},
      {:guardian, "~> 0.13.0"},
+     {:arc, "~> 0.5.2"},
+     {:arc_ecto, "~> 0.4.4"},
     ]
   end
 

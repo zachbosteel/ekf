@@ -24,13 +24,6 @@ import Admin from "./pages/private/admin"
 
 const sessionManager = new SessionManager()
 
-const classPages = (
-  axios.get('http://localhost:4000/api/class_page')
-    .then( res => {
-        return res.class_pages;
-      }
-    )
-)
 
 function requireAuth(nextState, replace) {
   if (!sessionManager.loggedIn()) {
