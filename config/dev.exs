@@ -42,4 +42,13 @@ config :ekf, Ekf.Repo,
   hostname: "localhost",
   pool_size: 10
 
+# configure image uploads
+config :arc,
+  storage: Arc.Storage.S3,
+  bucket: "ekf-dev"
+
+config :ex_aws,
+  access_key_id: System.get_env("EKF_AWS_ACCESS_KEY"),
+  secret_access_key: System.get_env("EKF_AWS_SECRET_KEY")
+
 import_config "dev.secret.exs"

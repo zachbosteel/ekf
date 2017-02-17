@@ -34,6 +34,7 @@ class ClassDetail extends React.Component {
     return (
       <div>
        <h1>{this.state.class.title}</h1>
+        <img src="https://s3.amazonaws.com/ekf-dev/uploads/ekfschedule.png?v=63654440361" />
       </div>
     )
   }

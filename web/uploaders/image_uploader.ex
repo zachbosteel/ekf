@@ -9,7 +9,7 @@ defmodule Ekf.ImageUploader do
     ~w(.jpg .jpeg .gif .png) |> Enum.member?(Path.extname(file.file_name))
   end
 
-  def __storage, do: Arc.Storage.Local
+  # def __storage, do: Arc.Storage.Local
 
   # Override the persisted filenames:
   # def filename(version, _) do
