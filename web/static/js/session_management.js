@@ -28,6 +28,8 @@ class SessionManager extends React.Component {
       store.dispatch(this.logInSuccess({
         user: Object.assign({}, res.data.data, res.data.meta)
       }))
+      sessionStorage.setItem('ekf-token', res.data.meta.token)
+      console.log('pushing new path')
       browserHistory.push('/admin')
     })
     .catch(error => {
@@ -40,13 +42,10 @@ class SessionManager extends React.Component {
   logOut(data) {
     axios.delete(`/api/sessions`, data)
     .then(res => {
+      sessionStorage.removeItem('ekf-token')
       store.dispatch(this.logOutAction())
       browserHistory.push('/admin/login')
     })
-  }
-
-  loggedIn() {
-    return store.getState().isAuthenticated 
   }
 
   errors() {

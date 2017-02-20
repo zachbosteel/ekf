@@ -8,6 +8,14 @@ defmodule Ekf.ImageController do
     render(conn, "index.json", images: images)
   end
 
+  def gallery(conn, _) do
+    query = from i in Image,
+            where: i.label == "gallery-image",
+            select: {i}
+    images = Repo.all(query)
+    render(conn, "gallery.json", images: images)
+  end
+
   def new(conn, _params) do
     changeset = Image.changeset(%Image{})
     render(conn, "new.html", changeset: changeset)

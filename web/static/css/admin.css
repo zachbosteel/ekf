@@ -1,0 +1,61 @@
+.admin-container {
+    height: 100%;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+      
+    -ms-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    box-orient: horizontal;
+}
+
+.admin-nav {
+    background: #000;
+    height: 100%;
+    width: 190px;
+    -ms-flex: 0 190px;
+    -webkit-box-flex:  0;
+    -moz-box-flex:  0;
+    -ms-box-flex:  0;
+    box-flex:  0;
+}
+
+.admin-content {
+    height: 100%;
+    display: flex;
+    background: aliceblue;
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;  
+}
+
+.edit-class {
+    height: 100%;
+}
+
+.rail-button {
+    width: 80%;
+    display: inline-block;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.rail-button:hover {
+    background-color: darkgrey;
+}
+
+.rail-dropdown-container {
+    position: relative;
+    z-index: 10000;
+    bottom: 0px; 
+}

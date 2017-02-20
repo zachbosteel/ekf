@@ -9,6 +9,7 @@ defmodule Ekf.Image do
     field :path, :string
     field :title, :string
     field :alt, :string
+    field :label, :string
     field :image, Ekf.ImageUploader.Type
 
     timestamps()
@@ -19,9 +20,9 @@ defmodule Ekf.Image do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:path, :title, :alt, :image, :static_page_id, :class_page_id, :instructor_page_id])
+    |> cast(params, [:path, :title, :alt, :image, :label, :static_page_id, :class_page_id, :instructor_page_id])
     |> cast_attachments(params, [:image])
-    |> validate_required([:title, :alt, :image])
+    |> validate_required([:title, :alt, :image, :label])
   end
 
   def path_changeset(struct, params \\ %{}) do

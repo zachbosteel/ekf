@@ -9,7 +9,9 @@ class Home extends React.Component {
     this.state = {
       properties: {},
       texts: {},
-      images: {}
+      images: {},
+      galleryImages: [],
+      galleryLoaded: false
     }
   }
 
@@ -29,12 +31,19 @@ class Home extends React.Component {
         this.getTexts(properties);
         this.setState({ properties });
       });
+    axios.get('/api/images/gallery')
+      .then(res => {
+        console.log(res)
+        const galleryImages = res.data.images;
+        this.setState({galleryImages: galleryImages})
+        this.setState({galleryLoaded: true})
+      })
   }
 
   render() {
     return(
       <div>
-        <CleanCarousel />
+        {this.state.galleryLoaded ?  <CleanCarousel images={this.state.galleryImages} /> : <div className="carouselHolder" />}
         <div className="home-text-1">
           <h1 className="home-header">{this.state.texts['home-header-1']}</h1>
           <p className="home-paragraph">{this.state.texts['home-paragraph-1']}</p>

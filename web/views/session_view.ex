@@ -19,4 +19,8 @@ defmodule Ekf.SessionView do
   def render("forbidden.json", %{error: error}) do
     %{error: error}
   end
+
+  def render("verified.json", _) do
+    %{status: "verified"}
+  end
 end

@@ -3,22 +3,17 @@ import { browserHistory } from 'react-router';
 import 'whatwg-fetch';
 
 
-import ClassPageForm from './class_page_form';
+import InstructorPageForm from './instructor_page_form';
 
-class EditClass extends React.Component {
+class EditInstructor extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
-      classPage: {
+      instructorPage: {
         title: '',
         slug: '',
         texts: []
-      },
-      galleryImage: {
-        title: '',
-        alt: '',
-        path: ''
       },
       pageImage: {
         title: '',
@@ -31,17 +26,17 @@ class EditClass extends React.Component {
   }
 
   componentDidMount() {
-    this.updateClass(this.props.params.class_id)
+    this.updateInstructor(this.props.params.instructor_id)
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.params.class_id !== nextProps.params.class_id) {
-      this.updateClass(nextProps.params.class_id);
+    if(this.props.params.instructor_id !== nextProps.params.instructor_id) {
+      this.updateInstructor(nextProps.params.instructor_id);
     }
   }
 
-  updateClass(id) {
-    fetch(`/api/class_page/${id}`, {
+  updateInstructor(id) {
+    fetch(`/api/instructor_page/${id}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
@@ -49,30 +44,22 @@ class EditClass extends React.Component {
     }).then( res => {
       return res.json()
     }).then( myJson => {
-      this.setState({classPage: myJson.class_page})
-      this.getGalleryImage();
+      this.setState({instructorPage: myJson.instructor_page})
       this.getPageImage();
     })
   }
 
-  getGalleryImage() {
-    this.setState({galleryImage: this.state.classPage.images.filter(
-      (image) => {
-        return image.label === 'gallery-image';
-      }
-    )[0]})
-  }
-
   getPageImage() {
-    this.setState({pageImage: this.state.classPage.images.filter(
+    this.setState({pageImage: this.state.instructorPage.images.filter(
       (image) => {
         return image.label === 'page-image';
       }
     )[0]})
+    console.log(this.state)
   }
 
   handleSubmit(data) {
-    fetch(`/api/class_page/${this.props.params.class_id}`, {
+    fetch(`/api/instructor_page/${this.props.params.instructor_id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
@@ -89,17 +76,17 @@ class EditClass extends React.Component {
 
   render() {
     return(
-      <div className="edit-class">
-        <ClassPageForm handleSubmit={this.handleSubmit} 
-          title={this.state.classPage.title}
-          slug={this.state.classPage.slug}
-          gallery_image={this.state.galleryImage}
+      <div className="edit-instructor">
+        <InstructorPageForm handleSubmit={this.handleSubmit} 
+          title={this.state.instructorPage.title}
+          slug={this.state.instructorPage.slug}
           page_image={this.state.pageImage}
-          description={this.state.classPage.texts[0]}
+          description={this.state.instructorPage.texts[0]}
           />
       </div>
     )
   }
 }
 
-export default EditClass
+export default EditInstructor
+

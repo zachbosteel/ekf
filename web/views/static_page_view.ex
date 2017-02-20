@@ -6,7 +6,7 @@ defmodule Ekf.StaticPageView do
 
   def render("index.json", %{static_pages: static_pages}) do
     %{
-      static_pages: Enum.map(static_pages, &static_page_json/1)
+      static_pages: Enum.map(static_pages, &static_page_index_json/1)
     }
   end
 
@@ -16,9 +16,18 @@ defmodule Ekf.StaticPageView do
     }
   end
 
+  def static_page_index_json(static_page) do
+    %{
+      id: static_page.id,
+      title: static_page.title,
+      type: "static",
+    }
+  end
+
   def static_page_json(static_page) do
     %{
       id: static_page.id,
+      type: "static",
       title: static_page.title,
       texts: Enum.map(static_page.texts, &Ekf.TextView.text_json/1),
       images: Enum.map(static_page.images, &Ekf.ImageView.image_json/1)

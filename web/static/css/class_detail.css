@@ -1,0 +1,29 @@
+.class-detail .hero img {
+    width: 100%;
+    position: relative;
+    top: -15px;
+    z-index: -1;
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #000;
+}
+
+.class-detail .hero h1 {
+    font-size: 8vw;
+    padding-left: 18%;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+}
+
+.class-detail p {
+    display: inline-block;
+    margin-left: 18%;
+    margin-right: 18%; 
+}

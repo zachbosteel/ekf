@@ -21,14 +21,24 @@ import InstructorDetail from "./pages/public/instructor_detail"
 
 // admin page route imports
 import Admin from "./pages/private/admin"
+import CreateClass from "./pages/private/create_class"
+import EditClass from "./pages/private/edit_class"
+import CreateInstructor from "./pages/private/create_instructor"
+import EditInstructor from "./pages/private/edit_instructor"
 
 const sessionManager = new SessionManager()
 
 
 function requireAuth(nextState, replace) {
-  if (!sessionManager.loggedIn()) {
-    replace({pathname: '/admin/login'})
-  }
+  let token = sessionStorage.getItem('ekf-token')
+  axios.post('/api/sessions/verify', {token: token})
+  .then(res => {
+    console.log(res);
+  })
+  .catch(error => {
+    console.log('handling error');
+    browserHistory.push('/admin/login');
+  })
 }
 
 ReactDOM.render(
@@ -46,20 +56,17 @@ ReactDOM.render(
     <Route path="/admin/login" component={() => (<Login store={store} />)} />
     <Route path="/admin" component={Admin} onEnter={requireAuth}>
       <IndexRoute />
+      <Route path="/admin/classes/add" component={CreateClass} onEnter={requireAuth} />
+      <Route path="/admin/classes/:class_id/edit" component={EditClass} onEnter={requireAuth} />
+      <Route path="/admin/instructors/add" component={CreateInstructor} onEnter={requireAuth} />
+      <Route path="/admin/instructors/:instructor_id/edit" component={EditInstructor} onEnter={requireAuth} />
     </Route>
   </Router>,
   document.getElementById("root")
 )
 
-    // <Route path="/login" component={Login}/>
-    // <Route path="/admin" onEnter={requireAuth} component={Admin}>
-    //   <IndexRoute component={Home} onEnter={requireAuth} />
-    //   <Route path="/admin/classes" component={Home} onEnter={requireAuth} />
-    //   <Route path="/admin/instructors" component={Home} onEnter={requireAuth} />
-    //   <Route path="/admin/classes/add" component={Home} onEnter={requireAuth} />
-    //   <Route path="/admin/instructors/add" component={Home} onEnter={requireAuth} />
-    //   <Route path="/admin/classes/edit" component={Home} onEnter={requireAuth} />
-    //   <Route path="/admin/instructors/edit" component={Home} onEnter={requireAuth} />
+
+
     //   <Route path="/admin/static_pages" component={Home} onEnter={requireAuth} />
     //   <Route path="/admin/static_pages/edit" component={Home} onEnter={requireAuth} />
     // </Route>

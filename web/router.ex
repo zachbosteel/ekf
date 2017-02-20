@@ -10,7 +10,7 @@ defmodule Ekf.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json", "html"]
     plug Guardian.Plug.VerifyHeader, realm: "Bearer"
     plug Guardian.Plug.LoadResource
   end
@@ -21,8 +21,10 @@ defmodule Ekf.Router do
     post "/sessions", SessionController, :create
     delete "/sessions", SessionController, :delete
     post "/sessions/refresh", SessionController, :refresh
+    post "/sessions/verify", VerificationController, :verify
     resources "/users", UserController, only: [:create]
 
+    get "/images/gallery", ImageController, :gallery
     resources "/images", ImageController
     resources "/texts", TextController
     resources "/static_page", StaticPageController

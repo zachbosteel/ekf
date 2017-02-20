@@ -3,9 +3,9 @@ import { browserHistory } from 'react-router';
 import 'whatwg-fetch';
 
 
-import ClassPageForm from './class_page_form';
+import InstructorPageForm from './instructor_page_form';
 
-class CreateClass extends React.Component {
+class CreateInstructor extends React.Component {
   constructor(props){
     super(props);
 
@@ -13,7 +13,7 @@ class CreateClass extends React.Component {
   }
 
   handleSubmit(data) {
-    let resp = fetch('/api/class_page', {
+    let resp = fetch('/api/instructor_page', {
       method: 'POST',
       headers: {
         'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
@@ -31,10 +31,11 @@ class CreateClass extends React.Component {
   render() {
     return(
       <div>
-        <ClassPageForm handleSubmit={this.handleSubmit} />
+        <InstructorPageForm handleSubmit={this.handleSubmit} />
       </div>
     )
   }
 }
 
-export default CreateClass
+export default CreateInstructor
+

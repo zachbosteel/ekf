@@ -40,3 +40,9 @@ img.home-background-break-image {
     margin-left: 18%;
     margin-right: 18%;   
 }
+
+.carouselHolder {
+    width: 100%;
+    display: block;
+    height: 500px;
+}

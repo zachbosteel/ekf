@@ -26,14 +26,46 @@ class InstructorDetail extends React.Component {
     axios.get(`/api/instructor_page/${id}`)
     .then(res => {
       this.setState({instructor: res.data.instructor_page});
+      this.getText();
+      this.getImage();
     })
   }
 
 
+  getText() {
+    this.setState({description: this.state.instructor.texts[0] })
+  }
+
+  getImage() {
+    const image = this.state.instructor.images.filter((image) => {return image.label === 'page-image'})
+    this.setState({image: image[0]})
+  }
+
+  updateinstructor(id) {
+    axios.get(`/api/instructor_page/${id}`)
+    .then(res => {
+      this.setState({instructor: res.data.instructor_page});
+      this.getText();
+      this.getImage();
+    })
+  }
+
   render() {
+    let image = null;
+    let description = null;
+    if (this.state.image) {
+      image = <img src={this.state.image.path} alt={this.state.image.alt} />
+    }
+    if (this.state.description) {
+      description = this.state.description.body
+    }
     return (
-      <div>
-       <h1>{this.state.instructor.title}</h1>
+      <div className="non-home-page instructor-detail">
+        <div className="hero">
+          {image}
+          <h1>{this.state.instructor.title}</h1>
+        </div>
+        <p>{description}</p>
       </div>
     )
   }

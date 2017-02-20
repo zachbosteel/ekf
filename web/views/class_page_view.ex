@@ -16,6 +16,10 @@ defmodule Ekf.ClassPageView do
     }
   end
 
+  def render("ok.json", _) do
+    %{status: "ok"}
+  end
+
   def class_page_index_json(class_page) do
     %{
       id: class_page.id,

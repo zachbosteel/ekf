@@ -16,6 +16,10 @@ defmodule Ekf.InstructorPageView do
     }
   end
 
+  def render("ok.json", _ ) do
+    %{status: "ok"}
+  end
+
   def instructor_page_index_json(instructor_page) do
     %{
       id: instructor_page.id,
