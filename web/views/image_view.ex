@@ -31,7 +31,7 @@ defmodule Ekf.ImageView do
   def image_json(image) do
     cond do
       is_nil(image) -> nil
-      true -> %{title: image.title, path: image.path, alt: image.alt, label: image.label}
+      true -> %{title: image.title, path: image.path, alt: image.alt, label: image.label, id: image.id}
     end
   end
 end

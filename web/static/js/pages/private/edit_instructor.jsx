@@ -36,6 +36,7 @@ class EditInstructor extends React.Component {
   }
 
   updateInstructor(id) {
+    this.setState({id: id})
     fetch(`/api/instructor_page/${id}`, {
       method: 'GET',
       headers: {
@@ -82,6 +83,8 @@ class EditInstructor extends React.Component {
           slug={this.state.instructorPage.slug}
           page_image={this.state.pageImage}
           description={this.state.instructorPage.texts[0]}
+          deletable={true}
+          id={this.state.id}
           />
       </div>
     )

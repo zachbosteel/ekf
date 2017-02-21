@@ -16,7 +16,7 @@ defmodule Ekf.TextView do
   def text_json(text) do
     cond do
       is_nil(text) -> nil
-      true -> %{body: text.body, label: text.label}
+      true -> %{body: text.body, label: text.label, id: text.id}
     end
     
   end

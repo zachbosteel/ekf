@@ -41,6 +41,7 @@ class EditClass extends React.Component {
   }
 
   updateClass(id) {
+    this.setState({id: id})
     fetch(`/api/class_page/${id}`, {
       method: 'GET',
       headers: {
@@ -96,6 +97,8 @@ class EditClass extends React.Component {
           gallery_image={this.state.galleryImage}
           page_image={this.state.pageImage}
           description={this.state.classPage.texts[0]}
+          deletable={true}
+          id={this.state.id}
           />
       </div>
     )

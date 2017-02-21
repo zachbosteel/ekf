@@ -1,4 +1,6 @@
 import React from 'react';
+import {browserHistory} from 'react-router';
+import 'whatwg-fetch';
 
 
 class ClassPageForm extends React.Component {
@@ -10,7 +12,8 @@ class ClassPageForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGalleryImageChange = this.handleGalleryImageChange.bind(this);
-    this.handlePageImageChange = this.handlePageImageChange.bind(this);
+    this.handlePageImageChange = this.handlePageImageChange.bind(this); 
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
 
@@ -27,6 +30,7 @@ class ClassPageForm extends React.Component {
       pageImageAlt: props.page_image ? props.page_image.alt : '',
       pageImagePreview: props.page_image ? props.page_image.path : '',
       description: props.description ? props.description.body : '',
+      id: props.id,
     }
   }
 
@@ -94,6 +98,21 @@ class ClassPageForm extends React.Component {
     reader.readAsDataURL(file)
   }
 
+
+  handleDelete(e) {
+    e.preventDefault()
+    fetch(`/api/class_page/${this.state.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+      }
+    }).then( res => {
+      res.json()
+    }).then( jsonRes => {
+      browserHistory.push('/admin')
+    })
+  }
+
   createSlug(title) {
     return title.toLowerCase().split(" ").join("-")
   }
@@ -143,6 +162,7 @@ class ClassPageForm extends React.Component {
         <div className="class-page-submit">
           <button type="submit">Submit</button>
         </div>
+        { this.props.deletable ? <div className="class-page-delete"><button type="button" onClick={this.handleDelete}>Delete</button></div> : <div></div> }
       </form>
     )  
   }

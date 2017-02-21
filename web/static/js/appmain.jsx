@@ -25,6 +25,7 @@ import CreateClass from "./pages/private/create_class"
 import EditClass from "./pages/private/edit_class"
 import CreateInstructor from "./pages/private/create_instructor"
 import EditInstructor from "./pages/private/edit_instructor"
+import EditStatic from "./pages/private/static_page_form"
 
 const sessionManager = new SessionManager()
 
@@ -33,7 +34,7 @@ function requireAuth(nextState, replace) {
   let token = sessionStorage.getItem('ekf-token')
   axios.post('/api/sessions/verify', {token: token})
   .then(res => {
-    console.log(res);
+    // happy path
   })
   .catch(error => {
     console.log('handling error');
@@ -60,13 +61,9 @@ ReactDOM.render(
       <Route path="/admin/classes/:class_id/edit" component={EditClass} onEnter={requireAuth} />
       <Route path="/admin/instructors/add" component={CreateInstructor} onEnter={requireAuth} />
       <Route path="/admin/instructors/:instructor_id/edit" component={EditInstructor} onEnter={requireAuth} />
+      <Route path="/admin/static/:static_id/edit" component={EditStatic} onEnter={requireAuth} />
     </Route>
   </Router>,
   document.getElementById("root")
 )
 
-
-
-    //   <Route path="/admin/static_pages" component={Home} onEnter={requireAuth} />
-    //   <Route path="/admin/static_pages/edit" component={Home} onEnter={requireAuth} />
-    // </Route>

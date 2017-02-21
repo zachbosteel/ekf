@@ -12,7 +12,9 @@
 }
 
 .class-detail .hero h1 {
-    font-size: 8vw;
+    font-size: 4vw;
+    background-color: rgba(0, 0, 0, .25);
+    width: 60%;
     padding-left: 18%;
     margin-right: auto;
     margin-top: 0px;
@@ -26,4 +28,5 @@
     display: inline-block;
     margin-left: 18%;
     margin-right: 18%; 
+    min-height: 300px;
 }

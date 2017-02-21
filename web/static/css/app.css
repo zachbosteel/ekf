@@ -20,6 +20,7 @@ body {
 
 p {
     font-family: 'Open Sans', sans-serif ;
+    white-space: pre-wrap;
 }
 
 .my-carousel {
@@ -39,4 +40,31 @@ p {
     border-top-width: 5px;
     border-top-style: solid;
     border-top-color: #E62048;
+}
+
+.footer {
+    background-color: #000;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.footer a {
+    margin-top: 30px;
+    color: white;
+    padding: 10px;
+}
+
+.footer a i {
+    margin-top: 20px;
+    height: 20px;
+    width: 20px;
+    color: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+}
+
+.footer a i:hover {
+    color: white;
+    border-color: white;
 }

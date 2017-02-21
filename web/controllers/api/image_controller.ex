@@ -9,6 +9,7 @@ defmodule Ekf.ImageController do
   end
 
   def gallery(conn, _) do
+    IO.puts("Something's wrong!!")
     query = from i in Image,
             where: i.label == "gallery-image",
             select: {i}
@@ -23,7 +24,9 @@ defmodule Ekf.ImageController do
 
   def create(conn, %{"image" => image_params}) do
     changeset = Image.changeset(%Image{}, image_params)
-
+    IO.puts("CHANGESET")
+    IO.inspect(changeset)
+    IO.puts("CHANGESET")
     case Repo.insert(changeset) do
       {:ok, _image} ->
         Repo.update(Image.path_changeset(_image, %{path: Ekf.ImageUploader.url({_image.image, _image})}))

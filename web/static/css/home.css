@@ -5,8 +5,6 @@ img.home-background-break-image {
 }
 
 .parallax { 
-    /* The image used */
-    background-image: url("../images/1.jpg");
 
     /* Set a specific height */
     height: 500px; 
@@ -20,23 +18,36 @@ img.home-background-break-image {
 
 
 .home-text-1 {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .home-text-2 {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 
 .home-header {
     display: block;
     text-align: center;
+    padding-left: 18%;
+    width: 60%;
+    background-color: rgba(0, 0, 0, .25);
+}
+
+
+
+.home-subheader {
+    display: block;
+    text-align: center;
+    position: relative;
+    top: -10px;
 }
 
 .home-paragraph {
     display: block;
+    min-height: 120px;
     margin-left: 18%;
     margin-right: 18%;   
 }

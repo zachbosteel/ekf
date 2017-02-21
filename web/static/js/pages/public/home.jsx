@@ -24,11 +24,21 @@ class Home extends React.Component {
     this.setState({ texts });
   }
 
+  getImages(static_page) {
+    const initial_images = static_page.images;
+    const images = {};
+    for (let image of initial_images) {
+      images[image.label] = image.path;
+    }
+    this.setState({ images });
+  }
+
   componentDidMount() {
     axios.get(`/api/static_page/1`)
       .then(res => {
         const properties = res.data.static_page;
         this.getTexts(properties);
+        this.getImages(properties);
         this.setState({ properties });
       });
     axios.get('/api/images/gallery')
@@ -46,9 +56,10 @@ class Home extends React.Component {
         {this.state.galleryLoaded ?  <CleanCarousel images={this.state.galleryImages} /> : <div className="carouselHolder" />}
         <div className="home-text-1">
           <h1 className="home-header">{this.state.texts['home-header-1']}</h1>
+          <h3 className="home-subheader">{this.state.texts['home-subheader-1']}</h3>
           <p className="home-paragraph">{this.state.texts['home-paragraph-1']}</p>
         </div>
-        <div className="parallax"> 
+        <div className="parallax" style={{backgroundImage: 'url(' + this.state.images['home-parallax-1'] + ')'}}> 
         </div>
         <div className="home-text-2">
           <h1 className="home-header">{this.state.texts['home-header-2']}</h1>

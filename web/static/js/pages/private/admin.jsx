@@ -24,7 +24,7 @@ class Admin extends React.Component {
   componentDidMount() {
     axios.get(`/api/static_page`)
       .then(res => {
-        const staticPages = res.data.static_pages;
+        const staticPages = res.data.static_pages.filter( (sp) => { return !["Classes", "Instructors"].includes(sp.title) });
         this.setState({staticPages: staticPages});
       });
     axios.get(`/api/class_page`)

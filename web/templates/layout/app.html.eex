@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <script src="https://use.fontawesome.com/9676a3bfa7.js"></script>
   </head>
 
   <body>

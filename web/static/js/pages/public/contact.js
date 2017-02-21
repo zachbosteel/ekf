@@ -15,13 +15,23 @@ class Contact extends React.Component {
       .then(res => {
         const properties = res.data.static_page;
         this.setState({ properties });
+        this.getTexts();
       });
+  }
+
+  getTexts() {
+    let updatedState = {}
+    for (const text of this.state.properties.texts) {
+      updatedState[text.label] = text.body;
+    }
+    this.setState(updatedState)
   }
 
   render() {
     return(
-      <div>
-        <h1>{this.state.properties.title}</h1>
+      <div className="non-home-page">
+        <h1 className="contact-header">{this.state['contact-header-1']}</h1>
+        <p className="contact-paragraph">{this.state['contact-paragraph-1']}</p>
       </div>
     )
   } 

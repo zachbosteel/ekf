@@ -8,58 +8,53 @@ defmodule Ekf.StaticPageController do
     render(conn, "index.json", static_pages: static_pages)
   end
 
-  # def new(conn, _params) do
-  #   changeset = StaticPage.changeset(%StaticPage{})
-  #   render(conn, "new.html", changeset: changeset)
-  # end
-
-  # def create(conn, %{"static_page" => static_page_params}) do
-  #   changeset = StaticPage.changeset(%StaticPage{}, static_page_params)
-
-  #   case Repo.insert(changeset) do
-  #     {:ok, _static_page} ->
-  #       conn
-  #       |> put_flash(:info, "Static page created successfully.")
-  #       |> redirect(to: static_page_path(conn, :index))
-  #     {:error, changeset} ->
-  #       render(conn, "new.html", changeset: changeset)
-  #   end
-  # end
-
   def show(conn, %{"id" => id}) do
     static_page = Repo.get!(StaticPage, id) |> Repo.preload(:texts) |> Repo.preload(:images)
     render(conn, "show.json", static_page: static_page)
   end
 
-  # def edit(conn, %{"id" => id}) do
-  #   static_page = Repo.get!(StaticPage, id)
-  #   changeset = StaticPage.changeset(static_page)
-  #   render(conn, "edit.html", static_page: static_page, changeset: changeset)
-  # end
+  def update(conn, params) do
+    IO.puts("UPDATING")
+    # Get affected content ids
+    text_ids = String.split(params["textIds"], ",")
+    image_ids = String.split(params["imageIds"], ",")
 
-  # def update(conn, %{"id" => id, "static_page" => static_page_params}) do
-  #   static_page = Repo.get!(StaticPage, id)
-  #   changeset = StaticPage.changeset(static_page, static_page_params)
+    # Build queries, retrieve rows, and update
+    case text_ids do
+      [""] -> "No texts delivered."
+      _ -> (from t in Ekf.Text, where: t.id in ^text_ids, select: {t})
+           |> Repo.all()
+           |> update_texts(params)
+    end
+    case image_ids do
+      [""] -> "No images delivered."
+      _ -> (from i in Ekf.Image, where: i.id in ^image_ids, select: {i})
+           |> Repo.all()
+           |> update_images(params)
+    end
 
-  #   case Repo.update(changeset) do
-  #     {:ok, static_page} ->
-  #       conn
-  #       |> put_flash(:info, "Static page updated successfully.")
-  #       |> redirect(to: static_page_path(conn, :show, static_page))
-  #     {:error, changeset} ->
-  #       render(conn, "edit.html", static_page: static_page, changeset: changeset)
-  #   end
-  # end
+    # render an ok response
+    render(conn, "ok.json", %{})
+  end
 
-  # def delete(conn, %{"id" => id}) do
-  #   static_page = Repo.get!(StaticPage, id)
+  defp update_texts(texts, params) do
+    Enum.map(texts, fn(wrapped_text) ->
+      {text} = wrapped_text
+      changeset = Ekf.Text.changeset(text, %{body: params[text.label]})
+      Repo.update(changeset)
+    end)
+  end
 
-  #   # Here we use delete! (with a bang) because we expect
-  #   # it to always work (and if it does not, it will raise).
-  #   Repo.delete!(static_page)
-
-  #   conn
-  #   |> put_flash(:info, "Static page deleted successfully.")
-  #   |> redirect(to: static_page_path(conn, :index))
-  # end
+  defp update_images(images, params) do
+    Enum.map(images, fn(wrapped_image) ->
+      {img} = wrapped_image
+      data = %{title: params["#{img.label}-title"], 
+               alt: params["#{img.label}-alt"], 
+               image: params["#{img.label}-image"]}
+      srubbed_data = if data[:image] == nil, do: Map.drop(data, [:image]), else: data
+      changeset = Ekf.Image.changeset(img, srubbed_data)
+      {:ok, new_img} = Repo.update(changeset)
+      Repo.update(Ekf.Image.path_changeset(new_img, %{path: Ekf.ImageUploader.url({new_img.image, new_img})}))
+    end)
+  end
 end

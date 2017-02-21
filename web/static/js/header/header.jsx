@@ -34,7 +34,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="primary">
         <div className="header">
           <HeaderLogo linkTo="/"/>
           <HeaderButton buttonName="Classes" linkTo="/classes"> 
@@ -49,6 +49,11 @@ class Header extends React.Component {
         </div>
 
         {this.props.children}
+        <div className="footer">
+          <a href="https://facebook.com/EKFchicago/"><i className="fa fa-facebook fa-2" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/EKFchicago"><i className="fa fa-twitter fa-2" aria-hidden="true"></i></a>
+          <a href="https://instagram.com/ekfchicago"><i className="fa fa-instagram fa-2" aria-hidden="true"></i></a>
+        </div>
       </div>
     )
   }

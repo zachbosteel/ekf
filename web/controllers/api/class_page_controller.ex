@@ -63,17 +63,15 @@ defmodule Ekf.ClassPageController do
     end
   end
 
-  # def delete(conn, %{"id" => id}) do
-  #   class_page = Repo.get!(ClassPage, id)
+  def delete(conn, %{"id" => id}) do
+    class_page = Repo.get!(ClassPage, id)
 
-  #   # Here we use delete! (with a bang) because we expect
-  #   # it to always work (and if it does not, it will raise).
-  #   Repo.delete!(class_page)
+    # Here we use delete! (with a bang) because we expect
+    # it to always work (and if it does not, it will raise).
+    Repo.delete!(class_page)
 
-  #   conn
-  #   |> put_flash(:info, "Class page deleted successfully.")
-  #   |> redirect(to: class_page_path(conn, :index))
-  # end
+    render(conn, "ok.json", %{})
+  end
 
   defp get_class_params(params) do
     %{title: params["title"], slug: params["slug"]}

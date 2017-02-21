@@ -16,6 +16,10 @@ defmodule Ekf.StaticPageView do
     }
   end
 
+  def render("ok.json", _) do
+    %{status: "ok"}
+  end
+
   def static_page_index_json(static_page) do
     %{
       id: static_page.id,

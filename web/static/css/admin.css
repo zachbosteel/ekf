@@ -37,6 +37,14 @@
 
 .edit-class {
     height: 100%;
+    width: 100%;
+    border: 1px solid aliceblue;
+}
+
+.edit-instructor {
+    height: 100%;
+    width: 100%;
+    border: 1px solid aliceblue;
 }
 
 .rail-button {

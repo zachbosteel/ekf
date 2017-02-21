@@ -57,17 +57,15 @@ defmodule Ekf.InstructorPageController do
     end
   end
 
-  # def delete(conn, %{"id" => id}) do
-  #   instructor_page = Repo.get!(InstructorPage, id)
+  def delete(conn, %{"id" => id}) do
+    instructor_page = Repo.get!(InstructorPage, id)
 
-  #   # Here we use delete! (with a bang) because we expect
-  #   # it to always work (and if it does not, it will raise).
-  #   Repo.delete!(instructor_page)
+    # Here we use delete! (with a bang) because we expect
+    # it to always work (and if it does not, it will raise).
+    Repo.delete!(instructor_page)
 
-  #   conn
-  #   |> put_flash(:info, "Instructor page deleted successfully.")
-  #   |> redirect(to: instructor_page_path(conn, :index))
-  # end
+    render(conn, "ok.json", %{})
+  end
 
   defp get_instructor_params(params) do
     %{title: params["title"], slug: params["slug"]}
