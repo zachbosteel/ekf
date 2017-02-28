@@ -26,6 +26,27 @@ config :logger, level: :info
 config :guardian, Guardian,
   secret_key: System.get_env("GUARDIAN_SECRET_KEY")
 
+# Configure your database
+config :ekf, Ekf.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  database: System.get_env("DB_NAME"),
+  hostname: System.get_env("DB_HOST"),
+  port: System.get_env("DB_PORT"),
+  pool_size: 10
+
+# configure image uploads
+config :arc,
+  storage: Arc.Storage.S3,
+  bucket: "ekf-dev"
+
+config :ex_aws,
+  access_key_id: System.get_env("EKF_AWS_ACCESS_KEY"),
+  secret_access_key: System.get_env("EKF_AWS_SECRET_KEY")
+
+
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

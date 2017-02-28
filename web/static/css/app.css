@@ -16,7 +16,9 @@ body {
     margin: 0;
 }
 
-
+.primary {
+    overflow: hidden;
+}
 
 p {
     font-family: 'Open Sans', sans-serif ;
