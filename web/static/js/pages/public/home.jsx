@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 
 import CleanCarousel from "../../carousel/carousel"
+import ContactForm from "../../contact_form/contact_form"
+import HomeMap from '../../google-map/home_map'
 
 class Home extends React.Component {
   constructor(props) {
@@ -65,6 +67,11 @@ class Home extends React.Component {
           <h1 className="home-header">{this.state.texts['home-header-2']}</h1>
           <p className="home-paragraph">{this.state.texts['home-paragraph-2']}</p>
         </div>
+        <HomeMap />
+        <div className="home-text-2">
+          <h1 className="home-header">Contact Us</h1>
+        </div>
+        <ContactForm />
       </div>
     )
   } 

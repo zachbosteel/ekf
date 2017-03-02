@@ -30,6 +30,17 @@ config :guardian, Guardian,
   verify_issuer: true,
   serializer: Ekf.GuardianSerializer 
 
+
+config :ekf, Ekf.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: "email-smtp.us-east-1.amazonaws.com",
+  port: 587,
+  username: System.get_env("SMTP_USERNAME"),
+  password: System.get_env("SMTP_PASSWORD"),
+  tls: :always, # can be `:always` or `:never`
+  ssl: false, # can be `true`
+  retries: 3
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

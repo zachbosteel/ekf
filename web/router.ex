@@ -24,6 +24,8 @@ defmodule Ekf.Router do
     post "/sessions/verify", VerificationController, :verify
     resources "/users", UserController, only: [:create]
 
+    post "/email", EmailController, :deliver
+
     get "/images/gallery", ImageController, :gallery
     resources "/images", ImageController
     resources "/texts", TextController

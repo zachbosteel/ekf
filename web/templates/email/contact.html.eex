@@ -1,0 +1,8 @@
+<h2>New message from  <%= @email.first_name %> <%= @email.last_name %></h2>
+<h4>Email: <%= @email.email_address %></h4>
+<h4>Phone: <%= @email.phone %></h4>
+
+<h3>Area of Interest: <%= @email.aoi %></h3>
+
+<p><%= @email.message %></p>
+

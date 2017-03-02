@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import ContactForm from "../../contact_form/contact_form"
+
 class Contact extends React.Component {
   
   constructor(props) {
@@ -32,6 +34,7 @@ class Contact extends React.Component {
       <div className="non-home-page">
         <h1 className="contact-header">{this.state['contact-header-1']}</h1>
         <p className="contact-paragraph">{this.state['contact-paragraph-1']}</p>
+        <ContactForm />
       </div>
     )
   } 

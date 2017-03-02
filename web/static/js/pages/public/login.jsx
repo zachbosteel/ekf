@@ -39,8 +39,8 @@ class Login extends React.Component {
   render() {
     return(
       <div className="login-div">
-        <img src="images/logo.png"></img>
         <form onSubmit={this.handleSubmit} className="login-form">
+          <img src="https://s3.amazonaws.com/ekf-dev/uploads/EKF_clean_WHT.png?v=63654859872" className="login-logo"></img>
           <label className="login-field">Email:
             <input type="text"
                    onChange={this.handleEmailChange} />

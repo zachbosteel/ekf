@@ -20,7 +20,7 @@ defmodule Ekf.Mixfile do
     [mod: {Ekf, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex, :ex_machina, :comeonin, :arc_ecto, :ex_aws, 
-                    :poison, :httpoison]]
+                    :poison, :httpoison, :bamboo]]
   end
 
   # Specifies which paths to compile per environment.
@@ -47,6 +47,8 @@ defmodule Ekf.Mixfile do
      {:ex_aws, "~> 0.5.0"},
      {:poison, "~> 2.0"},
      {:httpoison, "~> 0.9.0"},
+     {:bamboo, "~> 0.8.0"},
+     {:bamboo_smtp, "~> 1.3.0"}
     ]
   end
 
