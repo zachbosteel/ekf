@@ -37,10 +37,10 @@ class Header extends React.Component {
       <div className="primary">
         <div className="header">
           <HeaderLogo linkTo="/"/>
-          <HeaderButton buttonName="Classes" linkTo="/classes"> 
+          <HeaderButton buttonName="Classes" linkTo="/"> 
             <Dropdown items={this.state.classes} />
           </HeaderButton>
-          <HeaderButton buttonName="Instructors" linkTo="/instructors">
+          <HeaderButton buttonName="Instructors" linkTo="/">
             <Dropdown items={this.state.instructors} />
           </HeaderButton>
           <HeaderButton buttonName="Schedule" linkTo="/schedule" />
