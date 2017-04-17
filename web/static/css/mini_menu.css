@@ -1,0 +1,79 @@
+.mini-menu-icon {
+    height: 100%;
+    width: 18%;
+    float: right;
+    margin-right: 10px;
+    line-height: 80px;
+    padding-top: 7px;
+    vertical-align: center;
+}
+
+.mini-menu-icon i {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.mini-menu-icon i:active {
+    background-color: #404040;
+}
+
+.sidemenu {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: relative;
+    top: -15px;
+    display: inline-block;
+    z-index: 11;
+    left: -737px;
+    -webkit-animation: slide 0.25s forwards;
+    -webkit-animation-delay: 0s;
+    animation: slide 0.25s forwards;
+    animation-delay: 0s;
+}
+
+@-webkit-keyframes slide {
+    0% {left: -737px;}
+    100% { left: 0px; }
+}
+
+@keyframes slide {
+    0% {left: -737px;}
+    100% { left: 0px; }
+}
+
+.sidemenu-half-1 {
+    margin-top: 1px;
+    position: relative;
+    display: inline-block;
+    z-index: 12;
+    border-right: 1px solid #C0C0C0;
+}
+
+.sidemenu-half-2 {
+    margin-top: 1px;
+    position: relative;
+    display: inline-block;
+    z-index: 12;
+    vertical-align: top;
+}
+
+.mini-link-list {
+    padding: 0px;
+    width: 100%;
+    display: block;
+    list-style: none;
+    line-height: 30px;
+    overflow: scroll;
+}
+
+.mini-link-list li {
+    color: white;
+    width: 85%;
+    padding-left: 15%;
+    display: block;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.mini-link-list li:active {
+    background-color: rgba(0, 0, 0, 0.5);
+}

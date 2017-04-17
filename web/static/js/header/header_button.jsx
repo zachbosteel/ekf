@@ -12,7 +12,6 @@ class HeaderButton extends React.Component {
   }
 
   toggleChildDisplay() {
-    console.log("TOGGLING")
     const newValue = !this.state.hideChildren;
     this.setState({hideChildren: newValue});
   }
