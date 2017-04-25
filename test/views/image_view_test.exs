@@ -11,7 +11,9 @@ defmodule Ekf.ImageViewTest do
     assert rendered_image == %{
       title: image.title,
       alt: image.alt,
-      path: image.path
+      path: image.path,
+      id: image.id,
+      label: image.label
     }
   end
 

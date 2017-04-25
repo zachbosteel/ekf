@@ -3,7 +3,7 @@ defmodule Ekf.TextTest do
 
   alias Ekf.Text
 
-  @valid_attrs %{body: "some content"}
+  @valid_attrs %{body: "some content", label: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

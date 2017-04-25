@@ -9,7 +9,9 @@ defmodule Ekf.TextViewTest do
     rendered_text = TextView.text_json(text)
 
     assert rendered_text == %{
-      body: text.body
+      body: text.body,
+      label: text.label,
+      id: text.id
     }
   end
 

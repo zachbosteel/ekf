@@ -36,10 +36,15 @@ defmodule Ekf.InstructorPageControllerTest do
   test "#show renders a single instructor_page" do
     conn = build_conn()
     instructor_page = insert(:instructor_page)
+    %Ekf.Image{instructor_page_id: instructor_page.id, path: "/some/path", alt: "alt", label: "label", title: "title"}
+      |> Ekf.Repo.insert!
+    %Ekf.Text{instructor_page_id: instructor_page.id, body: "body", label: "label"}
+      |> Ekf.Repo.insert!
 
     conn = get conn, instructor_page_path(conn, :show, instructor_page)
 
-    assert json_response(conn, 200) == render_json(InstructorPageView, "show.json", instructor_page: instructor_page)
+    final_instructor_page = instructor_page |> Ekf.Repo.preload(:texts) |> Ekf.Repo.preload(:images)
+    assert json_response(conn, 200) == render_json(InstructorPageView, "show.json", instructor_page: final_instructor_page)
   end
 
   # test "renders page not found when id is nonexistent", %{conn: conn} do

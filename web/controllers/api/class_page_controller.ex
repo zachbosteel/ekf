@@ -38,7 +38,9 @@ defmodule Ekf.ClassPageController do
   end
 
   def show(conn, %{"id" => id}) do
-    class_page = Repo.get!(ClassPage, id) |> Repo.preload(:texts) |> Repo.preload(:images)
+    class_page = Repo.get!(ClassPage, id) 
+      |> Repo.preload(:texts) 
+      |> Repo.preload(:images)
     render(conn, "show.json", class_page: class_page)
   end
 

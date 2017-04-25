@@ -3,7 +3,7 @@ defmodule Ekf.ClassPageTest do
 
   alias Ekf.ClassPage
 
-  @valid_attrs %{title: "some content"}
+  @valid_attrs %{title: "some content", slug: "some-content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

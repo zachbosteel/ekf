@@ -5,7 +5,7 @@ defmodule Ekf.Email do
     new_email()
     |> to({"EKF Martial Arts", "extremekungfu@gmail.com"})
     |> from({"#{email.first_name} #{email.last_name}", "inquiries@ekfmartialarts.com"})
-    |> subject(email.subject)
+    |> subject("Contact Form Submission - #{email.subject}")
     |> assign(:email, email)
     |> put_html_layout({Ekf.LayoutView, "email.html"})
     |> render("contact.html")

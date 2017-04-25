@@ -39,7 +39,8 @@ defmodule Ekf.StaticPageControllerTest do
 
     conn = get conn, static_page_path(conn, :show, static_page)
 
-    assert json_response(conn, 200) == render_json(StaticPageView, "show.json", static_page: static_page)
+    final_page = static_page |> Ekf.Repo.preload(:texts) |> Ekf.Repo.preload(:images)
+    assert json_response(conn, 200) == render_json(StaticPageView, "show.json", static_page: final_page)
   end
 
   # test "renders page not found when id is nonexistent", %{conn: conn} do
