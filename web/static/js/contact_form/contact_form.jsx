@@ -53,6 +53,7 @@ class ContactForm extends React.Component {
       .then(resp => {
         this.setState(this.setInitialState())
         this.setState({thank_you: true})
+        console.log("thank you")
         browserHistory.push('/')
       }).catch(error => {
         console.log(error)
