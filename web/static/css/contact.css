@@ -109,6 +109,16 @@
     color: #e62048;
 }
 
+.thank-you {
+    background-color: #C2FFB1;
+    border: solid 2px #000000;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
 .contact-form-submit button {
     color: #FFFFFF;
     background: #333030;

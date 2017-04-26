@@ -7,18 +7,7 @@ class ContactForm extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      errors: false,
-      first_name: '',
-      last_name: '',
-      email_address: '',
-      aoi: '',
-      message: '',
-      subject: '',
-      phone1: '',
-      phone2: '',
-      phone3: ''
-    }
+    this.state = this.setInitialState()
 
     this.aoiOptions = [
       '',
@@ -30,20 +19,40 @@ class ContactForm extends React.Component {
       'Other'
     ]
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.setInitialState = this.setInitialState.bind(this);
+  }
+
+  setInitialState() {
+    return (
+      {
+        errors: false,
+        first_name: '',
+        last_name: '',
+        email_address: '',
+        aoi: '',
+        message: '',
+        subject: '',
+        phone1: '',
+        phone2: '',
+        phone3: '',
+        thank_you: false
+      }
+    )
   }
 
   handleSubmit(event) {
     event.preventDefault()
     let errors = this.validate()
     let params = this.buildFormSubmit()
-    console.log(params)
     if (errors.length > 0) {
       this.setState({errors: errors})
     } else {
       axios.post('/api/email', params)
       .then(resp => {
+        this.setState(this.setInitialState())
+        this.setState({thank_you: true})
         browserHistory.push('/')
       }).catch(error => {
         console.log(error)
@@ -88,6 +97,7 @@ class ContactForm extends React.Component {
 
   render() {
     let errorDiv = <div />
+    let thankYouDiv = <div />
     if (this.state.errors) {
       errorDiv = (
         <ul className="form-errors">
@@ -97,9 +107,18 @@ class ContactForm extends React.Component {
         </ul>
       )
     }
+    if (this.state.thank_you) {
+      thankYouDiv = (
+        <div className="thank-you">
+          <p>Thank you! Your message has been sent. We'll contact you as soon as we can.</p>
+        </div>
+      )
+    }
+
     return(
       <div>
         { errorDiv }
+        { thankYouDiv }
         <form onSubmit={this.handleSubmit} className="contact-form">
           <div className="contact-form-name">
             <label className="contact-form-name-field" >
