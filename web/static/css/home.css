@@ -52,6 +52,19 @@ img.home-background-break-image {
     margin-right: 18%;   
 }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class="home-paragraph"] {
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+
+    .home-header {
+        padding-left: 9%;
+        width: 80%;
+    }
+}
+
 .carouselHolder {
     width: 100%;
     display: block;
