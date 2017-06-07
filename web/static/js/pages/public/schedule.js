@@ -39,9 +39,9 @@ class Schedule extends React.Component {
     return(
       <div className="non-home-page schedule-page">
         <h1>{this.state['schedule-header-1']}</h1>
-        <img src={this.state['schedule-adult']} />
+        <img className="schedule-image" src={this.state['schedule-adult']} />
         <h1>{this.state['schedule-header-2']}</h1>
-        <img src={this.state['schedule-youth']} />
+        <img className="schedule-image" src={this.state['schedule-youth']} />
       </div>
     )
   } 
