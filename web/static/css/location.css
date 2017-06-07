@@ -56,3 +56,20 @@
 .address-overlay h4 {
     font-size: 1vw;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .address-overlay {
+        text-align: center;
+        top: 0px;
+        width: 100%;
+    }
+
+    .address-overlay h2 {
+        font-size: 4vw;
+    }
+
+    .address-overlay h4 {
+        font-size: 3vw;
+    }
+}
