@@ -8,8 +8,11 @@
   "dependencies": {
     "aphrodite": "^1.1.0",
     "axios": "^0.15.3",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "google-map-react": "^0.22.3",
     "lodash": "^4.17.4",
     "md5": "^2.2.1",
@@ -17,6 +20,7 @@
     "phoenix": "file:deps/phoenix",
     "phoenix_html": "file:deps/phoenix_html",
     "react": "^15.4.1",
+    "react-bootstrap": "^0.31.3",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.2",
     "react-responsive-carousel": "^3.0.22",
@@ -28,24 +32,58 @@
   },
   "devDependencies": {
     "babel-brunch": "^6.0.6",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "brunch": "2.7.4",
     "clean-css-brunch": "~2.0.0",
     "css-brunch": "~2.0.0",
-    "eslint": "^3.15.0",
-    "eslint-config-airbnb": "^14.1.0",
+    "enzyme": "^3.1.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-flowtype": "^2.30.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "fetch": "^1.1.0",
     "javascript-brunch": "~2.0.0",
+    "jest": "^21.2.1",
+    "jest-cli": "^21.2.1",
+    "jest-fetch-mock": "^1.2.1",
+    "nock": "^9.0.22",
+    "react-test-renderer": "^16.0.0",
+    "redux-mock-store": "^1.3.0",
     "uglify-js-brunch": "~2.0.1"
+  },
+  "scripts": {
+    "test-react": "jest -i -e"
   },
   "babel": {
     "plugins": [
       "transform-react-jsx"
+    ]
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/test/react"
+    ],
+    "moduleDirectories": [
+      "<rootDir>/node_modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "verbose": true,
+    "collectCoverage": true,
+    "automock": false,
+    "setupFiles": [
+      "./test/react/setupJest.js"
     ]
   }
 }
