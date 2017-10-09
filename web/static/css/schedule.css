@@ -9,7 +9,22 @@
     background-color: rgba(0, 0, 0, .25);
 }
 
-.schedule-page img {
+.schedule-page .embed-div {
+    padding-top: 1%;
+    padding-bottom: 5%;
     text-align: center;
     width: 80%;
+}
+
+.schedule-page .embed-div embed{
+    width: inherit;
+}
+
+@media only screen and (max-width: 768px) {
+    .schedule-page .embed-div {
+        padding: 4%;
+        height: 500px;
+        width: auto;
+        overflow-x: scroll;
+    }
 }

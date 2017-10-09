@@ -73,6 +73,9 @@ class EditClass extends React.Component {
   }
 
   handleSubmit(data) {
+    for (const pair of data.entries()) {
+      console.log(pair)
+    }
     fetch(`/api/class_page/${this.props.params.class_id}`, {
       method: 'PUT',
       headers: {

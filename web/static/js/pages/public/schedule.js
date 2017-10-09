@@ -38,11 +38,11 @@ class Schedule extends React.Component {
   render() {
     return(
       <div className="non-home-page schedule-page">
-        <h1>{this.state['schedule-header-1']}</h1>
-        <img className="schedule-image" src={this.state['schedule-adult']} />
-        <h1>{this.state['schedule-header-2']}</h1>
-        <img className="schedule-image" src={this.state['schedule-youth']} />
-      </div>
+        <h1>Schedule</h1>
+        <div className='embed-div'>
+          <embed className='schedule-image' src='/images/2017_schedule_new_bg.png' />
+        </div>
+     </div>
     )
   } 
 }
