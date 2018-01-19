@@ -36,11 +36,14 @@ class Schedule extends React.Component {
   }
 
   render() {
+    const scrollStyle = {
+      overflow: scroll,
+    }
     return(
       <div className="non-home-page schedule-page">
         <h1>Schedule</h1>
-        <div className='embed-div'>
-          <embed className='schedule-image' src='/images/2017_schedule_new_bg.png' />
+        <div className='embed-div' style={scrollStyle}>
+          <embed className='schedule-image' src='/images/ekf_updated_sched_2018.jpg' />
         </div>
      </div>
     )

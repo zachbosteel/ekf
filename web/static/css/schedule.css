@@ -25,6 +25,11 @@
         padding: 4%;
         height: 500px;
         width: auto;
-        overflow-x: scroll;
+        overflow: scroll;
+        -webkit-overflow-scrolling: auto;
+        embed {
+            height: 101%;
+            width: 101%;
+        }
     }
 }

@@ -19,9 +19,11 @@ defmodule Ekf.Image do
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
+    IO.puts "*)!*!)*!*)!*!*)!)*!)!*)*)!*)"
+    IO.inspect cast_attachments(struct, params, [:image])
     struct
-    |> cast(params, [:path, :title, :alt, :image, :label, :static_page_id, :class_page_id, :instructor_page_id])
     |> cast_attachments(params, [:image])
+    |> cast(params, [:path, :title, :alt, :image, :label, :static_page_id, :class_page_id, :instructor_page_id])
     |> validate_required([:title, :alt, :image, :label])
   end
 
