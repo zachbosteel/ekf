@@ -1,8 +1,5 @@
-import { getCsrfToken, setToken } from './sessions';
-
 function baseRequest(route, verb, data = null, prefix = true) {
   const ROUTE_PREFIX = '/api';
-  const TOKEN = getCsrfToken();
   const requestData = {
     method: verb,
     headers: {
@@ -20,10 +17,6 @@ function baseRequest(route, verb, data = null, prefix = true) {
     url = `${ROUTE_PREFIX}${route}`;
   }
   return fetch(url, requestData).then((resp) => {
-    const newToken = resp.headers.get('X-CSRF-Token');
-    if (newToken) {
-      setToken(newToken);
-    }
     return resp.json();
   });
 }
