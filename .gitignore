@@ -30,3 +30,7 @@ erl_crash.dump
 .env
 
 *.sql
+
+# logs and debugs
+
+npm-debug.*
