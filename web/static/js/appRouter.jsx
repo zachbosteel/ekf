@@ -7,7 +7,7 @@ import Header from "./header/header"
 import Home from "./pages/public/home"
 import Classes from "./pages/public/classes"
 import Instructors from "./pages/public/instructors"
-import Schedule from "./pages/public/schedule"
+import ScheduleContainer from "./containers/ScheduleContainer"
 import Location from "./pages/public/location"
 import Contact from "./pages/public/contact"
 import Login from "./pages/public/login"
@@ -56,7 +56,7 @@ class AppRouter extends React.Component {
             <Route path='/classes/:class_name/:class_id' component={ClassDetail} />
             <Route path="/instructors" component={Instructors} />
             <Route path='/instructors/:instructor_name/:instructor_id' component={InstructorDetail} />
-            <Route path="/schedule" component={Schedule} />
+            <Route path="/schedule" component={ScheduleContainer} />
             <Route path="/location" component={Location} />
             <Route path="/contact" component={Contact} />
           </Route>
